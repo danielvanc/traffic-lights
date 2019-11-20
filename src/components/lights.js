@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components'
+import Light from './light'
 
 const TrafficLights = styled.ul`
 `
@@ -11,7 +12,9 @@ class Lights extends Component {
     const RenderLights = () => (
       <TrafficLights className="traffic-lights">
         {
-          this.props.tData.map(({ color }, index) => <li key={index} data-lightid={index}>{color}</li>)
+          this.props.tData.map(({ color }, index) => (
+            <Light key={index} lightID={index} color={color} />
+          ))
         }
       </TrafficLights>
     )
