@@ -6,7 +6,7 @@ import Buttons from './components/Buttons'
 
 function App() {
   return (
-    <AppContainer className="App">
+    <AppContainer>
       <h1>Traffic Lights</h1>
       <TrafficPanel>
         <Lights />

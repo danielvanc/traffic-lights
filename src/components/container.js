@@ -6,6 +6,9 @@ const AppContainer = styled.div`
   margin: 2em auto;
   max-width: 800px;
   padding: 2em;
+
+  display: grid;
+  grid-template-columns: 2fr 1fr;
 `
 
 class container extends Component {
@@ -18,7 +21,7 @@ class container extends Component {
   
   render() {
     return (
-      <AppContainer>
+      <AppContainer className="App">
         {this.props.children}
       </AppContainer>
     );

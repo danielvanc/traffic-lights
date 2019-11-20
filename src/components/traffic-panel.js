@@ -1,11 +1,16 @@
 import React, { Component } from 'react';
+import styled from 'styled-components'
+
+const Panel = styled.main`
+  grid-column: 1;
+`
 
 class TrafficPanel extends Component {
   render() {
     return (
-      <div className="traffic-panel">
+      <Panel className="traffic-panel">
         {this.props.children}
-      </div>
+      </Panel>
     );
   }
 }
