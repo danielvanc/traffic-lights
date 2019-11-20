@@ -3,10 +3,10 @@ const TrafficData = [
     "color": "Red"
   },
   {
-    "color": "Green"
+    "color": "Orange"
   },
   {
-    "color": "Amber"
+    "color": "Green"
   }
 ]
 
