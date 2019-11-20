@@ -27,6 +27,12 @@ describe('Initial runs', () => {
     const panel = container.querySelector('.traffic-panel')
     expect(panel).toBeTruthy();
   })
+  it('Finds 3 lights', () => {
+    const lights = container.querySelector('.traffic-lights');
+    expect(lights).toBeTruthy();
+    const lightsCount = lights.querySelectorAll('li');
+    expect(lightsCount.length).toEqual(3)
+  })
 })
 
 afterAll(() => {

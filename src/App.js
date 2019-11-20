@@ -1,4 +1,5 @@
 import React from 'react';
+import TrafficData from '../src/data'
 import AppContainer from './components/container'
 import TrafficPanel from './components/traffic-panel'
 import Lights from './components/lights'
@@ -9,7 +10,7 @@ function App() {
     <AppContainer>
       <h1>Traffic Lights</h1>
       <TrafficPanel>
-        <Lights />
+        <Lights tData={TrafficData} />
       </TrafficPanel>
       <Buttons />
     </AppContainer>
