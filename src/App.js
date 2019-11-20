@@ -1,10 +1,11 @@
 import React from 'react';
+import AppContainer from './components/container'
 
 function App() {
   return (
-    <div className="App">
+    <AppContainer className="App">
       <h1>Traffic Lights</h1>
-    </div>
+    </AppContainer>
   );
 }
 
