@@ -2,8 +2,10 @@ import React, { Component } from 'react';
 import styled from 'styled-components'
 
 const AppContainer = styled.div`
-  margin: 0 auto;
+  border: 1px solid #333;
+  margin: 2em auto;
   max-width: 800px;
+  padding: 2em;
 `
 
 class container extends Component {

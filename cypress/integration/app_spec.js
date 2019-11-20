@@ -12,7 +12,7 @@ describe('Ensure page runs and tests in cypress', () => {
   })
   it('Check the app contains the traffic lights panel', () => {
     cy
-      .get('root')
+      .get('#root')
       .find('.traffic-panel')
   })
 })
