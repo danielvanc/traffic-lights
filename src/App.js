@@ -20,15 +20,33 @@ class App extends Component {
     this.state = {
       light: 0,
       direction: true, // default: fowards
-      started: false
+      started: true
     }
+  }
+
+  componentDidMount() {
+    !this.state.started && console.log('Not started');
+  }
+  
+  componentDidUpdate() {
+    
+  }
+
+  componentWillUnmount() {
+    console.log('Clearing timer...')
+    clearInterval(this.timerProp);
   }
 
   handleStartLights = () => {
     console.log('Clicked!')
-    this.setState({
-      started: !this.state.started
-    })
+    const { started } = this.state;
+    if (started) {
+      console.log("We've started")
+      this.startTimer();
+    } else {
+      console.log('Not started')
+      this.stopTimer();
+    }
   }
 
   handleLightsDirection = () => {
@@ -38,12 +56,55 @@ class App extends Component {
     })
   }
 
-  componentDidMount() {
-    !this.state.started && console.log('Not started');
+  manageLightsForward = () => {
+    console.log('Manage lights forward');
+    let currentLight = this.state.light;
+
+    if (currentLight >= 0 && currentLight <= 2) {
+
+      // Are the lights on green
+      if (currentLight === 2) {
+        return this.setState({
+          direction: false,
+          light: currentLight -= 1
+        })
+      }
+      // Are the lights on red?
+      if (currentLight === 0) {
+        return this.setState({
+          direction: true,
+          light: currentLight += 1
+        })
+      }
+      // Must be on amber light
+      return this.setState({ light: currentLight += 1 })
+    }
+    // Something must have gone wrong to get here...
+    return this.setState({ light: currentLight -= 1 })
   }
-  
-  componentDidUpdate() {
-    this.state.started ? console.log("We've started") : console.log('Not started');
+
+  // manageLightsBackward = () => {
+  //   console.log('Manage lights backward');
+  // }
+
+  startTimer = () => {
+    console.log('Starting timer...');
+    this.setState({ started: !this.state.started })
+    this.timerProp = setInterval(() => {
+      // console.log('Change to next light...');
+      this.manageLightsForward()
+      // if (this.state.direction) {
+      //   this.manageLightsForward()
+      // } else {
+      //   this.manageLightsBackward()
+      // }
+      clearInterval(this.timerProp)
+    }, 3000)
+  }
+
+  stopTimer = () => {
+    console.log('Stopped timer!');
+    clearInterval(this.timerProp)
   }
 
   render() {
