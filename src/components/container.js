@@ -10,13 +10,6 @@ const AppContainer = styled.div`
   grid-template-columns: 2fr 1fr;
 `
 class container extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      light: 0
-    }
-  }
-  
   render() {
     return (
       <AppContainer className="App">

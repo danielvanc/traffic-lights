@@ -10,11 +10,11 @@ const ButtonsContainer = styled.aside`
 
 class Buttons extends Component {
   render() {
+    // console.log(this.props)
     return (
       <ButtonsContainer className={`buttons-container`}>
-        <button type="button">Stop Lights</button>
-        <button type="button">Rewind Lights</button>
-        <button type="button">Forward Lights</button>
+        <button onClick={this.props.startLights} type="button">{this.props.started ? 'Stop' : 'Start'} Lights</button>
+        <button onClick={this.props.setDirection} type="button">{this.props.direction ? 'Forward' : 'Rewind'} Lights</button>
       </ButtonsContainer>
     );
   }
