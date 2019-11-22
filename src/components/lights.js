@@ -4,10 +4,15 @@ import Light from './light'
 
 const TrafficLights = styled.ul`
   background: black;
-  display: inline-block;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   list-style: none;
   margin: 0;
   padding: 5px 10px;
+  height: 400px;
+  width: 200px;
 `
 
 class Lights extends Component {

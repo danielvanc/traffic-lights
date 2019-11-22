@@ -1,10 +1,30 @@
 import React, { Component } from 'react';
 import Helmet from 'react-helmet'
+import styled, { css, createGlobalStyle } from 'styled-components'
 import TrafficData from '../src/data'
 import AppContainer from './components/container'
 import TrafficPanel from './components/traffic-panel'
 import Lights from './components/lights'
 import Buttons from './components/Buttons'
+
+const GlobalStyles = createGlobalStyle`
+  * {
+    margin: 0;
+    padding: 0;
+  }
+  body {
+    font-family: Arial, Helvetica, sans-serif;
+  }
+`
+
+const complexMixin = css`
+  color: ${props => (props.greenColor ? 'green' : 'black')};
+`
+
+const PageHeading = styled.h1`
+  ${props => (props.complex ? complexMixin : 'color: blue;')};
+  margin: 0 0 1em 0;
+`
 
 class App extends Component {
   constructor(props) {
@@ -92,7 +112,8 @@ class App extends Component {
         <Helmet>
           <title>Traffic Lights</title>
         </Helmet>
-        <h1>Traffic Lights</h1>
+        <GlobalStyles />
+        <PageHeading complex greenColor>Traffic Lights</PageHeading>
         <TrafficPanel>
           <Lights 
             tData={TrafficData} 

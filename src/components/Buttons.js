@@ -3,8 +3,12 @@ import styled from 'styled-components'
 
 const ButtonsContainer = styled.aside`
   button[type='button'] {
+    border-radius: 8px;
+    cursor: pointer;
     display: block;
+    font-size: 1.2em;
     margin-bottom: 15px;
+    padding: 1em;
   }
 `
 

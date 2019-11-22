@@ -4,9 +4,9 @@ import styled from 'styled-components'
 const TrafficLight = styled.li`
   background: #444;
   border-radius: 50%;
-  height: 40px;
+  height: 100px;
   margin: 5px 0;
-  width: 40px;
+  width: 100px;
   &.current {
     background: ${props => props.color};
   }
