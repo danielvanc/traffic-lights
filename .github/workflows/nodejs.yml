@@ -29,4 +29,4 @@ jobs:
         SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
       uses: pullreminders/slack-action@master
       with:
-        args: '{\"channel\":\"CQXSB4BQE\",\"text\":\"Hey *<@danielvanc>*, the build for commit *${{ github.sha }}* is now complete!\"}'
+        args: '{\"channel\":\"CQXSB4BQE\",\"text\":\"Hey *<@UQGPSMS74>*, the build for commit *<https://github.com/danielvanc/traffic-lights/commit/${{ github.sha }}|${{ github.sha }}>* is now complete!\"}'
