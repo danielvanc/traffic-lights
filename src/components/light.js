@@ -20,7 +20,7 @@ class Light extends Component {
     return (
       <TrafficLight
         data-lightid={lightID}
-        className={`traffic-light ${lightID === 0 && 'current'}`}
+        className={`traffic-light ${this.props.currentLight && 'current'}`}
         color={color}
       >
         <span>

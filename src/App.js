@@ -8,12 +8,6 @@ import Buttons from './components/Buttons'
 
 class App extends Component {
 
-  // 1. On component mount, start the timer
-  // 2. When timer has started, check the status of current light and direction (default fwd)
-  // 2. Red: 10 seconds, Orange: 2 seconds, Green: 10 seconds
-  // 3. Remove current class onChange and add to new light 
-  // 4. Add transition when changing to new light?
-
   constructor(props) {
     super(props);
     
@@ -86,7 +80,10 @@ class App extends Component {
         </Helmet>
         <h1>Traffic Lights</h1>
         <TrafficPanel>
-          <Lights tData={TrafficData} />
+          <Lights 
+            tData={TrafficData} 
+            currentLight={this.state.light} 
+          />
         </TrafficPanel>
         <Buttons
           started={this.state.started}

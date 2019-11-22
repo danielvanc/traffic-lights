@@ -18,7 +18,12 @@ class Lights extends Component {
       <TrafficLights className="traffic-lights">
         {
           this.props.tData.map(({ color }, index) => (
-            <Light key={index} lightID={index} color={color} />
+            <Light 
+              key={index} 
+              lightID={index} 
+              color={color} 
+              currentLight={index === this.props.currentLight ? true : false}
+            />
           ))
         }
       </TrafficLights>
