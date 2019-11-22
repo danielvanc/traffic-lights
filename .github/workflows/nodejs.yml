@@ -9,7 +9,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [8.x, 10.x, 12.x]
+        node-version: [10.x]
 
     steps:
     - uses: actions/checkout@v1
@@ -29,4 +29,4 @@ jobs:
         SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
       uses: pullreminders/slack-action@master
       with:
-        args: '{\"channel\":\"CQXSB4BQE\",\"text\":\"Build for commit <github.sha> complete\"}'
+        args: '{\"channel\":\"CQXSB4BQE\",\"text\":\"Build for commit ${{ github.sha }} complete\"}'
