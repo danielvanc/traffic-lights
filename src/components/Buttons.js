@@ -13,8 +13,10 @@ class Buttons extends Component {
     // console.log(this.props)
     return (
       <ButtonsContainer className={`buttons-container`}>
-        <button onClick={this.props.startLights} type="button">{!this.props.started ? 'Start' : 'Stop'} Lights</button>
-        <button onClick={this.props.setDirection} type="button">{this.props.direction ? 'Forward' : 'Rewind'} Lights</button>
+        <button 
+          onClick={this.props.startLights} 
+          type="button">
+            {!this.props.started ? 'Start' : 'Stop'} Lights</button>
       </ButtonsContainer>
     );
   }

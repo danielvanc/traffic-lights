@@ -7,7 +7,6 @@ import Lights from './components/lights'
 import Buttons from './components/Buttons'
 
 class App extends Component {
-
   constructor(props) {
     super(props);
     
@@ -18,28 +17,12 @@ class App extends Component {
     }
   }
 
-  componentDidMount() {
-    !this.state.started && console.log('Not started');
-    console.log('Mounted!');
-  }
-
   componentDidUpdate() {
-    if (this.state.started) {
-      this.startTimer();
-    } else {
-      console.log('Stopped timer!');
-    }
+    this.state.started && this.startTimer();
   }
 
   handleStartLights = () => {
     this.setState({ started: !this.state.started })
-  }
-
-  handleLightsDirection = () => {
-    this.setState({
-      started: true,
-      direction: !this.state.direction
-    })
   }
 
   manageLightsForward = () => {
@@ -87,7 +70,6 @@ class App extends Component {
         </TrafficPanel>
         <Buttons
           started={this.state.started}
-          direction={this.state.direction}
           setDirection={this.handleLightsDirection}
           startLights={this.handleStartLights}
         />
