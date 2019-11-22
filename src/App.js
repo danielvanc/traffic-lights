@@ -9,7 +9,12 @@ import Buttons from './components/Buttons'
 class App extends Component {
   constructor(props) {
     super(props);
-    
+    /**
+     *  Set some state for the
+     *  Current Light,
+     *  Current Direction
+     *  Has the user pressed the switch
+    */
     this.state = {
       light: 0,
       direction: true, // default: fowards
@@ -18,19 +23,35 @@ class App extends Component {
   }
 
   componentDidUpdate() {
+    /**
+     * After update, If switch has been started, fire up
+     */
     this.state.started && this.startTimer();
   }
 
   handleStartLights = () => {
+    /**
+     * Set started to opposite to what it currently is
+     */
     this.setState({ started: !this.state.started })
   }
 
   manageLightsForward = () => {
+    /**
+     *  Clear each interval for each render / stop
+     */
     clearInterval(this.timerProp)
     let currentLight = this.state.light;
     
     if (this.state.started) {
+      /**
+       *  Is the flow going in forwards direction?
+       */
       if (this.state.direction && currentLight <=2) {
+        /**
+         * Check to see if we're on green, if so go back
+         * to amber
+         */
         if (currentLight === 2) return this.setState({
           'direction': false
         })
@@ -38,7 +59,14 @@ class App extends Component {
           light: currentLight +=1
         })
       }
+      /**
+       *  Is the flow going in forwards direction?
+       */
       if (!this.state.direction && currentLight >= 0) {
+        /**
+         *  Check to see if we're on red, if so, go to
+         *  amber
+         */
         if (currentLight === 0) return this.setState({
           'direction': true
         })
@@ -50,6 +78,9 @@ class App extends Component {
   }
 
   startTimer = () => {
+    /**
+     * set a timer for each phase in light routine
+     */
     this.timerProp = setInterval(() => {
       this.manageLightsForward()
     }, 3000)
